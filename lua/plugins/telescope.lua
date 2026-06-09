@@ -38,9 +38,7 @@ return {
         local additional_rg_args = { "--hidden", "--fixed-strings", "--glob", "!**/.git/*" }
 
         return {
-            defaults = {
-                layout_strategy = "horizontal",
-                layout_config = { prompt_position = "top" },
+            defaults = vim.tbl_deep_extend("force", require("telescope.themes").get_ivy(), {
                 sorting_strategy = "ascending",
                 mappings = {
                     i = {
@@ -53,11 +51,10 @@ return {
                         ["<C-j>"] = actions.select_horizontal,
                     },
                 },
-            },
+            }),
             pickers = {
                 find_files = {
                     find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-                    theme = "ivy",
                 },
                 buffers = {
                     sort_mru = true,
