@@ -16,21 +16,23 @@ M.live_multigrep = function(opts)
             end
 
             local pieces = vim.split(prompt, "  ")
-                local args = { "rg", "--fixed-strings" }
-            if pieces[1] then
-                table.insert(args, "-e")
-                table.insert(args, pieces[1])
-            end
+            local args = vim.iter({
+                conf.vimgrep_arguments,
+                { "--fixed-strings", "--hidden", "--glob", "!**/.git/*" },
+            })
+                :flatten()
+                :totable()
 
             if pieces[2] then
-                table.insert(args, "-g")
-                table.insert(args, pieces[2])
+                table.insert(args, "--glob=" .. pieces[2])
             end
 
             return vim.iter({
                 args,
-                { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
-            }):flatten():totable()
+                { "--", pieces[1] },
+            })
+                :flatten()
+                :totable()
         end,
         entry_maker = make_entry.gen_from_vimgrep(opts),
         cwd = opts.cwd,

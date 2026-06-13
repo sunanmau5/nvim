@@ -11,9 +11,8 @@ return {
     cmd = "Telescope",
     keys = {
         { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-        { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
         {
-            "<leader>fg",
+            "<leader>/",
             function()
                 require("config.telescope.multigrep").live_multigrep()
             end,
@@ -22,10 +21,10 @@ return {
         {
             "<leader>/",
             function()
-                require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
+                require("config.telescope.multigrep").live_multigrep({ default_text = vim.fn.expand("<cword>") })
             end,
             mode = "v",
-            desc = "Grep word under cursor",
+            desc = "Multigrep word under cursor",
         },
         { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find help tags" },
