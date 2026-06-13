@@ -22,7 +22,7 @@ return {
             json = { "prettier" },
             html = { "prettier" },
             markdown = { "prettier" },
-            vue = { "biome" },
+            vue = { "prettier" },
             lua = { "stylua" },
             python = { "ruff_format" },
             terraform = { "terraform_fmt" },

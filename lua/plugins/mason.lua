@@ -6,10 +6,12 @@ return {
         opts = {
             ensure_installed = {
                 -- LSP servers
+                "bash-language-server",
                 "basedpyright",
                 "css-lsp",
                 "elixir-ls",
                 "html-lsp",
+                "json-lsp",
                 "lua-language-server",
                 "marksman",
                 "tailwindcss-language-server",
@@ -17,9 +19,9 @@ return {
                 "tflint",
                 "vue-language-server",
                 "vtsls",
+                "yaml-language-server",
                 -- Formatters / linters
                 "biome",
-                "markdown-toc",
                 "markdownlint-cli2",
                 "prettier",
                 "shfmt",
