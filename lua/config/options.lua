@@ -6,6 +6,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = "menuone,noselect,popup"
 vim.opt.cursorline = true
 vim.opt.expandtab = true
+vim.opt.guicursor = "i:block"
 vim.opt.ignorecase = true
 vim.opt.mouse = "a"
 vim.opt.number = true

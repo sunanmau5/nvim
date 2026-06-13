@@ -13,12 +13,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("config.options")
 require("config.keymaps")
-require("config.editor")
+require("config.autocmds")
 
 if not vim.g.vscode then
-    require("lsp")
     require("lazy").setup("plugins", {
         rocks = { enabled = false },
         change_detection = { notify = false },
     })
+    require("lsp")
 end

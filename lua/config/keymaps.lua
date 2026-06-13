@@ -13,6 +13,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking" })
 
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
+vim.keymap.set("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear search highlight" })
 
 vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 
