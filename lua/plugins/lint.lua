@@ -1,3 +1,4 @@
+---@type vim.api.keyset.events|vim.api.keyset.events[]
 local event = { "BufReadPost", "BufWritePost", "BufNewFile" }
 
 return {
