@@ -1,3 +1,6 @@
+---@type conform.FormatOpts
+local formatOpts = { async = true, lsp_fallback = true }
+
 return {
     "stevearc/conform.nvim",
     lazy = true,
@@ -7,7 +10,7 @@ return {
         {
             "<leader>cf",
             function()
-                require("conform").format({ async = true, lsp_fallback = true })
+                require("conform").format(formatOpts)
             end,
             mode = { "n", "v" },
             desc = "Format",
@@ -20,15 +23,23 @@ return {
             typescript = { "prettier" },
             typescriptreact = { "prettier" },
             json = { "prettier" },
+            jsonc = { "prettier" },
+            yaml = { "prettier" },
+            css = { "prettier" },
+            scss = { "prettier" },
+            less = { "prettier" },
             html = { "prettier" },
             markdown = { "prettier" },
             vue = { "prettier" },
+            sh = { "shfmt" },
+            bash = { "shfmt" },
+            zsh = { "shfmt" },
             lua = { "stylua" },
             python = { "ruff_format" },
             terraform = { "terraform_fmt" },
             ["terraform-vars"] = { "terraform_fmt" },
             hcl = { "terraform_fmt" },
         },
-        format_on_save = nil,
+        format_after_save = formatOpts,
     },
 }
