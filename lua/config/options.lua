@@ -1,41 +1,28 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 vim.g.autoformat = false
 
+vim.opt.clipboard = "unnamedplus"
+vim.opt.completeopt = "menuone,noselect,popup"
+vim.opt.cursorline = true
+vim.opt.expandtab = true
+vim.opt.ignorecase = true
+vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber = true
-
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-vim.opt.signcolumn = "yes"
-vim.opt.cursorline = true
 vim.opt.scrolloff = 8
+vim.opt.shiftwidth = 2
 vim.opt.sidescrolloff = 8
-vim.opt.wrap = false
-vim.opt.showmode = false
-
+vim.opt.signcolumn = "yes"
+vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.splitbelow = true
 vim.opt.splitright = true
-
-vim.opt.undofile = true
 vim.opt.swapfile = false
-
-vim.opt.clipboard = "unnamedplus"
-vim.opt.mouse = "a"
-vim.opt.updatetime = 250
+vim.opt.tabstop = 2
+vim.opt.termguicolors = true
 vim.opt.timeoutlen = 300
-
-vim.opt.completeopt = "menuone,noselect,popup"
-vim.opt.laststatus = 2
-vim.opt.cmdheight = 1
-vim.opt.showcmd = true
 vim.opt.title = true
+vim.opt.undofile = true
+vim.opt.updatetime = 250
+vim.opt.wrap = false

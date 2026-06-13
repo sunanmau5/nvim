@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("config.options")
 require("config.keymaps")
+require("config.editor")
 
 if not vim.g.vscode then
     require("lsp")
