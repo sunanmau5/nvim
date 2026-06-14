@@ -1,6 +1,3 @@
----@type conform.FormatOpts
-local formatOpts = { async = true, lsp_fallback = true }
-
 return {
     "stevearc/conform.nvim",
     lazy = true,
@@ -10,7 +7,7 @@ return {
         {
             "<leader>cf",
             function()
-                require("conform").format(formatOpts)
+                require("conform").format({ async = true, lsp_fallback = true })
             end,
             mode = { "n", "v" },
             desc = "Format",
@@ -18,6 +15,7 @@ return {
     },
     opts = {
         formatters_by_ft = {
+            ["*"] = { "trim_whitespace", "trim_newlines" },
             javascript = { "prettier" },
             javascriptreact = { "prettier" },
             typescript = { "prettier" },
@@ -40,6 +38,6 @@ return {
             ["terraform-vars"] = { "terraform_fmt" },
             hcl = { "terraform_fmt" },
         },
-        format_after_save = formatOpts,
+        format_on_save = { lsp_fallback = true },
     },
 }
