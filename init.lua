@@ -20,5 +20,6 @@ if not vim.g.vscode then
         rocks = { enabled = false },
         change_detection = { notify = false },
     })
+    require("config.statusline")
     require("lsp")
 end

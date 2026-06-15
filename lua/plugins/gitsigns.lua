@@ -1,1 +1,7 @@
-return { "lewis6991/gitsigns.nvim", opts = { current_line_blame = true } }
+return {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+        attach_to_untracked = true,
+        current_line_blame = true,
+    },
+}
