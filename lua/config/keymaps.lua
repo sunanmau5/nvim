@@ -9,7 +9,7 @@ vim.keymap.set("n", "<M-->", "<cmd>vertical resize -5<cr>", { desc = "Decrease w
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking" })
+vim.keymap.set("x", "p", [["_dP]], { desc = "Paste without yanking" })
 
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
