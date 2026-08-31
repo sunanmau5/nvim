@@ -1,3 +1,31 @@
+local BIOME_FILES = { "biome.json", "biome.jsonc" }
+local ESLINT_FILES = {
+    ".eslintrc",
+    ".eslintrc.js",
+    ".eslintrc.cjs",
+    ".eslintrc.json",
+    "eslint.config.js",
+    "eslint.config.mjs",
+    "eslint.config.cjs",
+}
+local PRETTIER_FILES = { ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }
+
+local function js_formatters(bufnr)
+    local dir = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
+    if dir and vim.fs.root(dir, BIOME_FILES) then
+        return { "biome" }
+    end
+    local f = {}
+    if dir and vim.fs.root(dir, ESLINT_FILES) then
+        f[#f + 1] = "eslint"
+    end
+    if dir and vim.fs.root(dir, PRETTIER_FILES) then
+        f[#f + 1] = "prettier"
+    end
+    -- defaults to prettier
+    return #f == 0 and { "prettier" } or f
+end
+
 return {
     "stevearc/conform.nvim",
     lazy = true,
@@ -7,7 +35,7 @@ return {
         {
             "<leader>cf",
             function()
-                require("conform").format({ async = true, lsp_fallback = true })
+                require("conform").format({ async = true, lsp_format = "fallback" })
             end,
             mode = { "n", "v" },
             desc = "Format",
@@ -16,12 +44,12 @@ return {
     opts = {
         formatters_by_ft = {
             ["*"] = { "trim_whitespace", "trim_newlines" },
-            javascript = { "biome", "prettier", stop_after_first = true },
-            javascriptreact = { "biome", "prettier", stop_after_first = true },
-            typescript = { "biome", "prettier", stop_after_first = true },
-            typescriptreact = { "biome", "prettier", stop_after_first = true },
-            json = { "biome", "prettier", stop_after_first = true },
-            jsonc = { "biome", "prettier", stop_after_first = true },
+            javascript = js_formatters,
+            javascriptreact = js_formatters,
+            typescript = js_formatters,
+            typescriptreact = js_formatters,
+            json = js_formatters,
+            jsonc = js_formatters,
             yaml = { "prettier" },
             css = { "prettier" },
             scss = { "prettier" },
