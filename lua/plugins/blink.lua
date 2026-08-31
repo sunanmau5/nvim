@@ -1,11 +1,11 @@
 return {
     "saghen/blink.cmp",
     dependencies = { "rafamadriz/friendly-snippets" },
-    enabled = function()
-        return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
-    end,
     version = "1.*",
     opts = {
+        enabled = function()
+            return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
+        end,
         keymap = { preset = "default" },
         appearance = {
             nerd_font_variant = "mono",
