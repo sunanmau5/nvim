@@ -15,6 +15,7 @@ return {
             "dockerfile",
             "eex",
             "elixir",
+            "gotmpl",
             "heex",
             "html",
             "javascript",

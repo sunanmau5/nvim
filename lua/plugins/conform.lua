@@ -55,6 +55,7 @@ return {
             scss = { "prettier" },
             less = { "prettier" },
             html = { "prettier" },
+            gotmpl = { "gotmplfmt" },
             markdown = { "prettier", "markdownlint-cli2" },
             vue = { "prettier" },
             sh = { "shfmt" },
@@ -68,6 +69,7 @@ return {
         },
         formatters = {
             biome = { require_cwd = true },
+            gotmplfmt = { command = "gotmplfmt" },
         },
         default_format_opts = {
             lsp_format = "fallback",
