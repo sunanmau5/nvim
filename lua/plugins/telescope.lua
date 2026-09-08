@@ -26,6 +26,13 @@ return {
             mode = "v",
             desc = "Multigrep word under cursor",
         },
+        {
+            "<leader>fn",
+            function()
+                require("config.telescope.nodemodules").find_files()
+            end,
+            desc = "Search node_modules",
+        },
         { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find help tags" },
         { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Go to definition" },
