@@ -35,6 +35,12 @@ return {
         },
     },
     opts = {
+        keymaps = {
+            select_split = "<C-j>",
+            select_vsplit = "<C-l>",
+            preview_scroll_up = "<C-b>",
+            preview_scroll_down = "<C-f>",
+        },
         layout = {
             anchor = "bottom",
             width = 1,
